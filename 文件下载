@@ -1,0 +1,3 @@
+启动powershell
+先输入：$client = new-object System.Net.WebClient 
+在输入：$client.DownloadFile('http://url/includes/config.php','C:\Users\Administrator\Desktop\rubbish\config.php')
