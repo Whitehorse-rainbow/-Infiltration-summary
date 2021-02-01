@@ -1,0 +1,2 @@
+fofa搜索：app="Apache-Shiro",header="rememberme=deleteMe"、header="shiroCookie"
+特征：返回包里有：rememberme=deleteme，常见于登录框。
