@@ -1,0 +1,25 @@
+旁站：是和目标网站在同一台服务器但开放在其他端口的网站。
+C段：是和目标服务器ip处在同一个C段的其它服务器。
+
+谷歌语法
+地址：https://www.google.com
+语法：site:211.69.130.*
+FOFA、Shodan 
+地址：https://fofa.so/
+https://www.shodan.io/
+语法：ip="211.69.130.0/24" 
+
+常规扫描:whatweb www.baidu.com
+批量扫描： whatweb -i /root/12.txt
+详细回显扫描：whatweb -v www.baidu.com
+加强扫描强度：whatweb -a  3 -v www.baidu.com
+快速扫描本地主机： whatweb  --no-errors  -t 255 网段
+将扫描结果导入文件： whatweb  www.baidu.com  --log-xml=bai.xml
+
+几个网址：
+https://fofa.so
+https://zoomeye.org
+https://censys.io
+https://www.xj.hk/hack/
+https://securitytrails.com/
+https://x.threatbook.cn/
