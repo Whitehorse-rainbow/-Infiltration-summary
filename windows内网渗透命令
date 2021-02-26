@@ -1,0 +1,1 @@
+net use \\10.10.10.201\ipc$ P@ssw0rd /user:localhost\administrator     登录445端口
