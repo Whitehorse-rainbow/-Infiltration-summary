@@ -1,0 +1,10 @@
+https://scarletf.github.io/2019/09/03/%E5%9F%9F%E6%B8%97%E9%80%8F-%E5%AF%BC%E5%87%BA%E5%9F%9F%E7%94%A8%E6%88%B7Hash%E6%96%B9%E6%B3%95/
+
+如何从 ntds.dit 提取 Hash
+NTDSDumpEx
+# 离线模式：先导出注册表
+reg save hklm\system system.hiv
+NTDSDumpEx.exe -d ntds.dit -s system.hiv -o hash.txt
+
+# 在线模式：无需导出注册表
+NTDSDumpEx.exe -d ntds.dit -r -o hash.txt
