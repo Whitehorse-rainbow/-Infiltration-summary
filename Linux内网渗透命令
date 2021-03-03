@@ -20,6 +20,14 @@ wget -O /tmp/1.py http://103.xx.xx.xx:8090/1.py wget命令
 ./64 -s rssocks -d 103.56.19.57 -e 8002   端口转发
 ping -c 10 192.168.120.206 ping指定次数
 ----------------------------------------------------------------------
+在 Tmux 窗口中，按下Ctrl+b d或者输入tmux detach命令，就会将当前会话与窗口分离。
+tmux ls命令可以查看当前所有的 Tmux 会话。
+# 使用会话编号
+$ tmux attach -t 0
+# 使用会话名称
+$ tmux attach -t <session-name>
+tmux kill-session命令用于杀死某个会话。
+
 .tar
 解包：tar xvf FileName.tar
 打包：tar cvf FileName.tar DirName
