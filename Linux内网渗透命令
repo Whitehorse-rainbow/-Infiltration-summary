@@ -62,3 +62,8 @@ ping -c 10 192.168.120.206 ping指定次数
 语法：gzip [选项] 压缩（解压缩）的文件名该命令的各选项含义如下：
 -c 将输出写到标准输出上，并保留原有文件。-d 将压缩文件解压。
 ---------------------------------------------------------------
+curl -T app.jar ftp://185.243.41.216/
+
+mysqldump -uroot -pfda4da7295f11da1 --databases guess >/tmp/guess.sql 
+mv /tmp/guess.sql 
+下载回来文件 curl -o guess.sql https://www/妈的目录/guess.sql
